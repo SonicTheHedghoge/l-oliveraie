@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposition Commerciale - L'Oliveraie Djerba</title>
+  <style>
+    :root {
+      --color-primary: #111111;
+      --color-secondary: #f5b800; /* Storefront Yellow */
+      --color-text: #2d3748;
+      --color-muted: #718096;
+      --color-border: #e2e8f0;
+      --color-bg-light: #f7fafc;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .proposal-page {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 50px 60px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    /* Print styling rules */
+    @media print {
+      body {
+        background-color: #ffffff;
+      }
+      .proposal-page {
+        margin: 0;
+        padding: 40px 30px;
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+
+    /* Print floating action button */
+    .print-btn-container {
+      max-width: 800px;
+      margin: 20px auto 0;
+      text-align: right;
+    }
+    .btn-print {
+      background: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .btn-print:hover {
+      background: #333333;
+    }
+
+    /* Header styling */
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    .logo-container {
+      text-align: left;
+    }
+    .logo-badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 12px 24px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      border-bottom: 4px solid var(--color-secondary);
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    .logo-sub {
+      font-size: 9px;
+      color: var(--color-secondary);
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 1px;
+    }
+    .proposal-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+    .proposal-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Columns layout */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--color-bg-light);
+      padding-bottom: 30px;
+    }
+    .info-card h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-muted);
+      margin-top: 0;
+      margin-bottom: 12px;
+      border-left: 3px solid var(--color-secondary);
+      padding-left: 8px;
+    }
+    .info-card p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .info-card strong {
+      color: var(--color-primary);
+    }
+
+    /* Content styling */
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .project-intro {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    /* Table styling */
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      font-size: 13px;
+    }
+    .feature-table th {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 10px 12px;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .feature-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .feature-table tr:nth-child(even) {
+      background: var(--color-bg-light);
+    }
+    .check-mark {
+      color: #2f855a;
+      font-weight: bold;
+    }
+    .dash-mark {
+      color: var(--color-muted);
+    }
+
+    /* Plans styling */
+    .plans-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .plan-card {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: center;
+      background: var(--color-bg-light);
+      position: relative;
+    }
+    .plan-card.recommended {
+      border-color: var(--color-secondary);
+      box-shadow: 0 4px 15px rgba(245, 184, 0, 0.1);
+    }
+    .plan-card.recommended::before {
+      content: 'Populaire';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-secondary);
+      color: var(--color-primary);
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+    .plan-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      color: var(--color-primary);
+    }
+    .plan-price {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .plan-price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-muted);
+    }
+    .plan-desc {
+      font-size: 11px;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    /* Bottom Info & Signatures */
+    .timeline-box {
+      background: var(--color-bg-light);
+      border-radius: 6px;
+      padding: 20px;
+      font-size: 13px;
+      margin-bottom: 40px;
+      border-left: 4px solid var(--color-primary);
+    }
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .signature-card {
+      text-align: left;
+      font-size: 14px;
+    }
+    .signature-card h4 {
+      margin-bottom: 30px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      border-top: 1px solid var(--color-muted);
+      margin-top: 40px;
+      padding-top: 8px;
+      font-size: 12px;
+      color: var(--color-muted);
+    }
+    .signature-script {
+      font-family: 'Courier New', Courier, monospace;
+      font-style: italic;
+      font-size: 18px;
+      color: #2b6cb0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-btn-container no-print">
+    <button class="btn-print" onclick="window.print()">Télécharger en PDF / Imprimer</button>
+  </div>
+
+  <div class="proposal-page">
+    <!-- Header Table -->
+    <table class="header-table">
+      <tr>
+        <td class="logo-container">
+          <div class="logo-badge">
+            L'Oliveraie
+            <span class="logo-sub">Restaurant • Pizzeria</span>
+          </div>
+        </td>
+        <td class="proposal-meta">
+          <div>Proposition Commerciale</div>
+          <div class="proposal-title">Devis de Services</div>
+          <div style="margin-top: 8px;">Date : 27 Juin 2026</div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Grid Details -->
+    <div class="details-grid">
+      <div class="info-card">
+        <h3>Prestataire</h3>
+        <p><strong>Daghari Adem</strong></p>
+        <p>Développeur Web & Mobile basé à Djerba</p>
+        <p>Tél (WhatsApp) : +216 29 769 006</p>
+        <p>E-mail : daghariadem09@gmail.com</p>
+      </div>
+      <div class="info-card">
+        <h3>Client</h3>
+        <p><strong>L'Oliveraie Restaurant & Pizzeria</strong></p>
+        <p>Zone Touristique, Midoun</p>
+        <p>Djerba, Tunisie</p>
+        <p>Contact : Direction de l'établissement</p>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="section-title">Objet de la prestation</div>
+    <p class="project-intro">
+      L'établissement **L'Oliveraie Restaurant & Pizzeria** possède un excellent emplacement et une identité visuelle claire avec son enseigne jaune et noire caractéristique. Pour consolider votre image de marque et attirer les clients en ligne (habitants et touristes), nous vous proposons le développement de votre site web sur-mesure, rapide, esthétique et optimisé pour le référencement Google.
+    </p>
+
+    <!-- Table comparing features -->
+    <div class="section-title">Tableau Comparatif des Formules</div>
+    <table class="feature-table">
+      <thead>
+        <tr>
+          <th>Fonctionnalités & Services</th>
+          <th style="text-align: center; width: 120px;">Formule Découverte</th>
+          <th style="text-align: center; width: 120px;">Formule Premium</th>
+          <th style="text-align: center; width: 120px;">Formule Élite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Site vitrine responsive</strong> (Ajusté PC/Mobile)</td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Menu numérique complet</strong> (Pizza/Plats)</td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Bouton de commande direct WhatsApp</strong></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Hébergement cloud gratuit à vie</strong> (Vercel)</td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Sommelier / Recommandateur de plats</strong></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Formulaire de réservation de table en ligne</strong></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Nom de domaine offert 1 an</strong> (ex: oliveraie-djerba.com)</td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Référencement SEO local Google</strong></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Espace d'Administration (CMS)</strong> (Édition des prix/plats)</td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Site Bilingue</strong> (Français & Anglais)</td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+        <tr>
+          <td><strong>Maintenance technique & support (1 an)</strong></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="dash-mark">—</span></td>
+          <td style="text-align: center;"><span class="check-mark">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Plans Breakdown -->
+    <div class="section-title">Nos Forfaits de Tarification</div>
+    <div class="plans-container">
+      <div class="plan-card">
+        <div class="plan-title">Découverte</div>
+        <div class="plan-price">290 <span>TND</span></div>
+        <p class="plan-desc">La présence essentielle. Idéal pour afficher votre carte en ligne et recevoir des clics.</p>
+      </div>
+      <div class="plan-card recommended">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">570 <span>TND</span></div>
+        <p class="plan-desc">L'expérience interactive. Incorpore le recommandateur de menu, réservation, et domaine pro.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-title">Élite</div>
+        <div class="plan-price">980 <span>TND</span></div>
+        <p class="plan-desc">Le contrôle total. Système d'administration complet, site bilingue et support pendant 1 an.</p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-box">
+      <strong>Délais de livraison :</strong> 3 jours ouvrés pour la Formule Découverte, 5 à 7 jours ouvrés pour les Formules Premium et Élite.
+      <br>
+      <strong>Conditions de règlement :</strong> Formule Découverte réglée 100% à la livraison. Formules Premium/Élite réglées en deux fois (50% d'acompte à la commande, 50% à la mise en ligne finale).
+    </div>
+
+    <!-- Signatures -->
+    <div class="signature-grid">
+      <div class="signature-card">
+        <h4>Prestataire</h4>
+        <div class="signature-script">Daghari Adem</div>
+        <div class="signature-line">
+          <strong>Daghari Adem</strong><br>
+          Développeur Web
+        </div>
+      </div>
+      <div class="signature-card">
+        <h4>Bon pour accord (Client)</h4>
+        <div style="height: 30px;"></div>
+        <div class="signature-line">
+          Date, Signature et Cachet<br>
+          Restaurant L'Oliveraie
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

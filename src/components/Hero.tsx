@@ -23,16 +23,16 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           <div className="badge">
             <span className="badge-dot" />
             <Sparkles size={12} style={{ marginRight: '6px' }} />
-            <span>Mediterranean Olive Grove Dining</span>
+            <span>Mediterranean Kitchen & Pizzeria</span>
           </div>
           
           <h1 className="hero-title">
-            Gastronomy Under <br />
-            <span className="text-gold">The Olive Trees</span>
+            Artisanal Pizza & <br />
+            <span className="text-gold">Mediterranean Taste</span>
           </h1>
           
           <p className="hero-description">
-            Step into L\'Oliveraie Restaurant, a peaceful oasis in Midoun, Djerba. Savor freshly-sourced Mediterranean seafood, woodfired delicacies, and authentic Tunisian recipes cooked with premium olive oils in an elegant garden environment.
+            Step into L\'Oliveraie Restaurant in Midoun, Djerba. Savor our famous wood-fired pizzas, freshly-sourced seafood plates, and authentic local recipes crafted with love and fresh ingredients.
           </p>
           
           <div className="hero-actions">
@@ -62,14 +62,14 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           <div className="garden-card-wrapper">
             <img 
               src="/images/garden.png" 
-              alt="L'Oliveraie Olive Garden Dining Area" 
+              alt="L'Oliveraie Restaurant Front" 
               className="garden-card-image"
             />
             <div className="garden-card-overlay">
-              <span className="garden-card-tag">Our Setting</span>
-              <h2 className="garden-card-title">The Olive Garden</h2>
+              <span className="garden-card-tag">Our Vibe</span>
+              <h2 className="garden-card-title">L'Oliveraie Midoun</h2>
               <p className="garden-card-desc">
-                Dine outside under traditional limestone arches and centuries-old olive trees casting romantic evening shadows.
+                A warm and cozy Mediterranean dining experience, combining Djerbian hospitality with the best Italian-style pizzas.
               </p>
             </div>
           </div>
