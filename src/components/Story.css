@@ -1,0 +1,146 @@
+.story-section {
+  position: relative;
+  background-color: var(--color-bg-alt);
+}
+
+.story-container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.story-visual {
+  position: relative;
+}
+
+.story-image-card {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 0.85;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.badge-number {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: var(--font-title);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.badge-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.story-content {
+  text-align: left;
+}
+
+.story-heading {
+  font-family: var(--font-title);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--color-text-primary);
+}
+
+.story-paragraph {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.story-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pillar-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pillar-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.pillar-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pillar-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.pillar-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .story-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .story-visual {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .story-experience-badge {
+    bottom: -20px;
+    right: 10%;
+  }
+}
